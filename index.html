@@ -9,7 +9,29 @@
             background: #f0f0f0;
             text-align: center;
             padding: 20px;
+            margin: 0; /* biar navbar nempel atas */
         }
+
+        /* NAVBAR BARU */
+        nav {
+            background: #4CAF50;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         .card {
             background: white;
             max-width: 400px;
@@ -23,12 +45,16 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
+            border: 3px solid #4CAF50; /* biar fotonya ada border ijo */
         }
         img.hobi {
             width: 100%;
             height: 180px;
             border-radius: 10px;
             margin-top: 10px;
+        }
+        h1 {
+            color: #4CAF50;
         }
         h2 {
             color: #333;
@@ -37,15 +63,22 @@
 </head>
 <body>
 
+<!-- NAVBAR MENU -->
+<nav>
+    <a href="#about">About Me</a>
+    <a href="#hobi">Hobi</a>
+    <a href="#sosmed">Sosmed</a>
+</nav>
+
 <!-- KARTU BIODATA -->
-<div class="card">
-    <h1>About Me</h1> <!-- 1. Judul atas ganti jadi About Me -->
+<div class="card" id="about"> <!-- 1. Kasih ID biar navbar bisa klik -->
+    <h1>About Me</h1>
     <img src="foto.jpeg">
     
-    <h2>Miralda</h2> <!-- 2. Nama dipindah ke sini, bawah foto -->
+    <h2>Miralda</h2>
     <p>Calon Web Developer | Suka Ngoding & Nulis</p>
 
-    <h2>Tentang Saya</h2>
+    <h2>Bio</h2> <!-- 2. Udah gw ganti dari "Tentang Saya" -->
     <p>Halo! Aku Miralda. Lagi belajar bikin website dari HP. Seneng banget ngulik dunia coding sampe kepala ngebul, gw juga suka main minecraft btw</p>
 
     <h2>Keahlian</h2>
@@ -56,7 +89,7 @@
 </div>
 
     <!-- SECTION HOBI -->
-    <div class="card">
+    <div class="card" id="hobi"> <!-- 3. Kasih ID -->
         <h2>Seputar My Hobby</h2>
         
         <h3>1. Ngoding</h3>
@@ -71,9 +104,8 @@
         <img class="hobi" src="tidur.jpg">
         <p>rahasia ranking 1 ya tidur ini cik😹</p>
     </div>
-    </div>
 
-    <footer style="text-align: center; padding: 30px;">
+    <footer id="sosmed" style="text-align: center; padding: 30px;"> <!-- 4. Kasih ID -->
         <p style="color: gray; font-size: 14px;">
             yauda sgitu aja biodata gw, makasih udh mau liat yak wkwk😹
 *tutor ngoding ada di yutup
@@ -88,3 +120,6 @@
             <a href="https://github.com/Miralda-75" target="_blank" style="text-decoration: none; margin: 0 10px;">Github</a>
         </div>
     </footer>
+
+</body>
+</html>
