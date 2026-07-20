@@ -28,6 +28,7 @@
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s ease-out;
+            overflow: hidden; /* FIX: biar gambar gak keluar card */
         }
         .section.show {
             opacity: 1;
@@ -70,10 +71,18 @@
             margin-bottom: 20px;
             color: #555;
         }
-        .hobi-item img {
-            width: 100%;
+        h3 {
+            margin-top: 0;
+            color: #444;
+        }
+        /* FIX: GAMBAR HOBI BIAR GAK GEDE */
+        .section img {
+            width: 100%;        /* ikut lebar card */
+            max-width: 100%;    /* mentok segede card */
+            height: auto;       /* biar gak gepeng */
             border-radius: 8px;
-            margin: 10px 0;
+            margin: 15px 0;
+            display: block;     /* ilangin jarak aneh */
         }
         /* STYLE BUAT QUOTE */
         .quote {
@@ -175,13 +184,13 @@
                     textEls.forEach(textEl => {
                         if(!textEl.classList.contains('typed')){
                             const text = textEl.getAttribute('data-text');
-                            typeWriter(textEl, text, 35); // speed gw cepetin dikit
+                            typeWriter(textEl, text, 35);
                             textEl.classList.add('typed');
                         }
                     });
                 }
             });
-        }, { threshold: 0.3 }); // threshold 0.3 = harus keliatan 30% baru ke-trigger
+        }, { threshold: 0.3 });
 
         sections.forEach(section => {
             observer.observe(section);
