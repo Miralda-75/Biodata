@@ -18,14 +18,14 @@
         .container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px; /* dikecilin biar rapet */
         }
 
         /* SETIAP SECTION */
         .section {
             background: white;
-            padding: 40px;
-            margin: 60px 0;
+            padding: 30px; /* dikecilin dikit */
+            margin: 20px 0; /* DARI 60px JADI 20px BIAR RAPET */
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             
@@ -42,8 +42,15 @@
         /* HEADER */
         .header {
             text-align: center;
-            padding: 100px 20px;
+            padding: 40px 20px; /* padding atas bawah dikecilin */
             background: white;
+        }
+        .header .judul-biodata {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 20px;
+            letter-spacing: 2px; /* biar keliatan pro */
         }
         .header img {
             width: 180px;
@@ -82,11 +89,6 @@
             width: 100%;
             border-radius: 8px;
             margin: 10px 0;
-            filter: grayscale(100%); /* Efek abu2 */
-            transition: filter 0.5s;
-        }
-        .hobi-item img:hover {
-            filter: grayscale(0%); /* Pas hover jadi warna */
         }
 
         /* FOOTER */
@@ -108,16 +110,17 @@
 </head>
 <body>
 
-    <!-- SECTION 1: HEADER -->
-    <div class="header section">
-        <img src="foto.jpeg" alt="Foto Profil">
-        <h1 class="type-text" data-text="Miralda"></h1>
-        <p class="type-text" data-text="Calon Web Developer | Suka Ngoding & Nulis"></p>
-    </div>
-
     <div class="container">
         
-        <!-- SECTION 2: TENTANG AKU -->
+        <!-- SECTION 1: HEADER + UDAH ADA TULISAN BIODATA -->
+        <div class="header section">
+            <div class="judul-biodata type-text" data-text="BIODATA"></div> <!-- INI TULISAN BARU -->
+            <img src="foto.jpeg" alt="Foto Profil">
+            <h1 class="type-text" data-text="Miralda"></h1>
+            <p class="type-text" data-text="Calon Web Developer | Suka Ngoding & Nulis"></p>
+        </div>
+
+        <!-- SECTION 2: TENTANG AKU - UDAH RAPET -->
         <div class="section">
             <h2>Tentang Aku</h2>
             <p class="type-text" data-text="Halo! Aku Miralda. Lagi belajar bikin website dari HP. Seneng banget ngulik dunia coding sampe kepala ngebul, tapi tetep santai. Prinsip gw: IQ + Ketenangan + Kopi = Ranking 1 😹"></p>
@@ -142,13 +145,13 @@
             <div class="hobi-item">
                 <h3>2. Main Game</h3>
                 <img src="game.jpg" alt="Game">
-                <p class="type-text" data-text="Game yang sering gw mainin Minecraft Ori. Suka banget bikin rumah aesthetic."></p>
+                <p class="type-text" data-text="Game yang sering gw mainin Minecraft Ori. Suka banget bikin rumah aesthetic sampe lupa waktu."></p>
             </div>
 
             <div class="hobi-item">
                 <h3>3. Tidur</h3>
                 <img src="tidur.jpg" alt="Tidur">
-                <p class="type-text" data-text="Rahasia ranking 1 ya tidur ini cik 😹 Tidur cukup = otak encer."></p>
+                <p class="type-text" data-text="Rahasia ranking 1 ya tidur ini cik 😹 Tidur cukup = otak encer = ngoding gacor."></p>
             </div>
         </div>
 
@@ -172,20 +175,20 @@
 
     <!-- SCRIPT BUAT ANIMASI -->
     <script>
-        // 1. ANIMASI MUNCUL PAS SCROLL
         const sections = document.querySelectorAll('.section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
                     
-                    // 2. JALANKAN KETIK JUGA
-                    const textEl = entry.target.querySelector('.type-text');
-                    if(textEl && !textEl.classList.contains('typed')){
-                        const text = textEl.getAttribute('data-text');
-                        typeWriter(textEl, text, 40);
-                        textEl.classList.add('typed'); // biar gak keulang
-                    }
+                    const textEls = entry.target.querySelectorAll('.type-text');
+                    textEls.forEach(textEl => {
+                        if(!textEl.classList.contains('typed')){
+                            const text = textEl.getAttribute('data-text');
+                            typeWriter(textEl, text, 40);
+                            textEl.classList.add('typed');
+                        }
+                    });
                 }
             });
         }, { threshold: 0.2 });
@@ -194,7 +197,6 @@
             observer.observe(section);
         });
 
-        // 3. FUNGSI KETIK PER HURUF
         function typeWriter(element, text, speed = 50) {
             let i = 0;
             element.innerHTML = "";
