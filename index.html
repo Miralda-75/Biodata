@@ -9,30 +9,55 @@
             background: #f0f0f0;
             text-align: center;
             padding: 20px;
-            margin: 0; /* biar navbar nempel atas */
+            margin: 0;
         }
 
-        /* NAVBAR BARU */
-        nav {
+        /* HEADER BARU ADA TITIK TIGA */
+       .header {
             background: #4CAF50;
+            color: white;
             padding: 15px;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+       .header h1 {
+            margin: 0;
+            font-size: 18px;
         }
-        nav a:hover {
-            text-decoration: underline;
+       .menu-btn {
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px 10px;
         }
 
-        .card {
+        /* DROPDOWN MENU */
+       .dropdown {
+            display: none;
+            position: absolute;
+            right: 10px;
+            top: 50px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            min-width: 160px;
+            text-align: left;
+        }
+       .dropdown a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+       .dropdown a:hover {
+            background: #f1f1f1;
+        }
+       .show {display: block;} /* ini buat nampilin pas diklik */
+
+       .card {
             background: white;
             max-width: 400px;
             margin: 20px auto;
@@ -44,82 +69,78 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #4CAF50; /* biar fotonya ada border ijo */
+            border: 3px solid #4CAF50;
         }
-        img.hobi {
-            width: 100%;
-            height: 180px;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-        h1 {
-            color: #4CAF50;
-        }
-        h2 {
-            color: #333;
-        }
+        h2 {color: #333;}
     </style>
 </head>
 <body>
 
-<!-- NAVBAR MENU -->
-<nav>
-    <a href="#about">About Me</a>
-    <a href="#hobi">Hobi</a>
-    <a href="#sosmed">Sosmed</a>
-</nav>
+<!-- HEADER + MENU TITIK TIGA -->
+<div class="header">
+    <h1>Biodata Miralda</h1>
+    <div class="menu-btn" onclick="toggleMenu()">⋮</div>
+    <div class="dropdown" id="myDropdown">
+        <a href="#about">About Me</a>
+        <a href="#hobi">Hobi</a>
+        <a href="#sosmed">Sosmed</a>
+    </div>
+</div>
 
 <!-- KARTU BIODATA -->
-<div class="card" id="about"> <!-- 1. Kasih ID biar navbar bisa klik -->
-    <h1>About Me</h1>
+<div class="card" id="about">
     <img src="foto.jpeg">
-    
     <h2>Miralda</h2>
     <p>Calon Web Developer | Suka Ngoding & Nulis</p>
-
-    <h2>Bio</h2> <!-- 2. Udah gw ganti dari "Tentang Saya" -->
-    <p>Halo! Aku Miralda. Lagi belajar bikin website dari HP. Seneng banget ngulik dunia coding sampe kepala ngebul, gw juga suka main minecraft btw</p>
-
+    <h2>Bio</h2>
+    <p>Halo! Aku Miralda. Lagi belajar bikin website dari HP...</p>
     <h2>Keahlian</h2>
     <p>Problem Solving, Efektivitas</p>
-
     <h2>Quote Favorit</h2>
     <p>"IQ + Ketenangan + Kopi = Santai"</p>
 </div>
 
-    <!-- SECTION HOBI -->
-    <div class="card" id="hobi"> <!-- 3. Kasih ID -->
-        <h2>Seputar My Hobby</h2>
-        
-        <h3>1. Ngoding</h3>
-        <img class="hobi" src="ngoding.jpg">
-        <p>Belajar bikin website biodata pake HP (pemula gua)</p>
+<!-- SECTION HOBI -->
+<div class="card" id="hobi">
+    <h2>Seputar My Hobby</h2>
+    <h3>1. Ngoding</h3>
+    <img class="hobi" src="ngoding.jpg" style="width:100%; border-radius:10px;">
+    <p>Belajar bikin website biodata pake HP</p>
+    <h3>2. Main Game</h3>
+    <img class="hobi" src="game.jpg" style="width:100%; border-radius:10px;">
+    <p>Game yang sering gw mainin minecraft ori</p>
+    <h3>3. Tidur</h3>
+    <img class="hobi" src="tidur.jpg" style="width:100%; border-radius:10px;">
+    <p>rahasia ranking 1 ya tidur ini cik😹</p>
+</div>
 
-        <h3>2. Main Game</h3>
-        <img class="hobi" src="game.jpg">
-        <p>Game yang sering gw mainin (minecraft ori loh ya)</p>
-
-        <h3>3. Tidur</h3>
-        <img class="hobi" src="tidur.jpg">
-        <p>rahasia ranking 1 ya tidur ini cik😹</p>
+<footer id="sosmed" style="text-align: center; padding: 30px;">
+    <p style="color: gray; font-size: 14px;">
+        yauda sgitu aja biodata gw, makasih udh mau liat yak wkwk😹
+    </p>
+    <div style="margin-top: 15px;">
+        <a href="https://www.instagram.com/noctune.id" target="_blank" style="margin: 0 10px;">IG</a>
+        <a href="https://wa.me/6287790374377" target="_blank" style="margin: 0 10px;">WhatsApp</a>
+        <a href="https://github.com/Miralda-75" target="_blank" style="margin: 0 10px;">Github</a>
     </div>
+</footer>
 
-    <footer id="sosmed" style="text-align: center; padding: 30px;"> <!-- 4. Kasih ID -->
-        <p style="color: gray; font-size: 14px;">
-            yauda sgitu aja biodata gw, makasih udh mau liat yak wkwk😹
-*tutor ngoding ada di yutup
-        </p>
+<!-- SCRIPT BUAT KLIK TITIK TIGA -->
+<script>
+function toggleMenu() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
-        <!-- LINK SOSMED -->
-        <div style="margin-top: 15px;">
-            <a href="https://www.instagram.com/noctune.id?igsh=dGh2Z2wxOGVlZHVj" target="_blank" style="text-decoration: none; margin: 0 10px;">IG</a>
-            
-            <a href="https://wa.me/6287790374377?text=Halo%20Mpruy%20" target="_blank" style="text-decoration: none; margin: 0 10px;">WhatsApp</a>
-            
-            <a href="https://github.com/Miralda-75" target="_blank" style="text-decoration: none; margin: 0 10px;">Github</a>
-        </div>
-    </footer>
+// biar nutup kalo klik di luar
+window.onclick = function(event) {
+  if (!event.target.matches('.menu-btn')) {
+    var dropdowns = document.getElementsByClassName("dropdown");
+    for (var i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+    }
+  }
+}
+</script>
 
 </body>
 </html>
