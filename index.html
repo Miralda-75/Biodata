@@ -5,31 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biodata Miralda</title>
     <style>
-        /* WARNA CUMA ABU & PUTIH */
         body {
             font-family: 'Arial', sans-serif;
-            background: #f2f2f2; /* Abu muda */
-            color: #333; /* Abu tua */
+            background: #f2f2f2;
+            color: #333;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
-
         .container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 20px; /* dikecilin biar rapet */
+            padding: 20px;
         }
-
-        /* SETIAP SECTION */
         .section {
             background: white;
-            padding: 30px; /* dikecilin dikit */
-            margin: 20px 0; /* DARI 60px JADI 20px BIAR RAPET */
+            padding: 30px;
+            margin: 20px 0; 
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             
-            /* BUAT ANIMASI MUNCUL */
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s ease-out;
@@ -38,11 +33,9 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* HEADER */
         .header {
             text-align: center;
-            padding: 40px 20px; /* padding atas bawah dikecilin */
+            padding: 40px 20px;
             background: white;
         }
         .header .judul-biodata {
@@ -50,16 +43,14 @@
             font-weight: bold;
             color: #555;
             margin-bottom: 20px;
-            letter-spacing: 2px; /* biar keliatan pro */
+            letter-spacing: 2px;
         }
         .header img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            border: 5px solid #ccc; /* Abu */
+            border: 5px solid #ccc;
             object-fit: cover;
-            
-            /* ANIMASI FOTO */
             transition: transform 0.6s ease;
         }
         .header img:hover {
@@ -73,29 +64,30 @@
             font-size: 1.1em;
             color: #777;
         }
-
         h2 {
             border-bottom: 2px solid #ddd;
             padding-bottom: 10px;
             margin-bottom: 20px;
             color: #555;
         }
-
-        /* HOBI CARD */
-        .hobi-item {
-            margin-bottom: 30px;
-        }
         .hobi-item img {
             width: 100%;
             border-radius: 8px;
             margin: 10px 0;
         }
-
-        /* FOOTER */
+        /* STYLE BUAT QUOTE */
+        .quote {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            padding: 10px 20px;
+            border-left: 3px solid #ccc;
+        }
         footer {
             text-align: center;
             padding: 40px 20px;
-            background: #e0e0e0; /* Abu */
+            background: #e0e0e0;
         }
         footer a {
             color: #333;
@@ -112,18 +104,18 @@
 
     <div class="container">
         
-        <!-- SECTION 1: HEADER + UDAH ADA TULISAN BIODATA -->
+        <!-- SECTION 1: HEADER -->
         <div class="header section">
-            <div class="judul-biodata type-text" data-text="BIODATA"></div> <!-- INI TULISAN BARU -->
+            <div class="judul-biodata type-text" data-text="BIODATA"></div>
             <img src="foto.jpeg" alt="Foto Profil">
             <h1 class="type-text" data-text="Miralda"></h1>
-            <p class="type-text" data-text="Calon Web Developer"></p>
+            <p class="type-text" data-text="Calon Web Developer | Suka Ngoding & Nulis"></p>
         </div>
 
-        <!-- SECTION 2: TENTANG AKU - UDAH RAPET -->
+        <!-- SECTION 2: TENTANG AKU -->
         <div class="section">
             <h2>Tentang Aku</h2>
-            <p class="type-text" data-text="Halo! Aku Miralda. Lagi belajar otodidak bikin website dari HP. Suka banget ngulik dunia coding sampe kepala ngebul."></p>
+            <p class="type-text" data-text="Halo! Aku Miralda. Lagi belajar bikin website dari HP. Seneng banget ngulik dunia coding sampe kepala ngebul, tapi tetep santai. Prinsip gw: IQ + Ketenangan + Kopi = Ranking 1 😹"></p>
         </div>
 
         <!-- SECTION 3: KEAHLIAN -->
@@ -132,33 +124,32 @@
             <p class="type-text" data-text="Problem Solving, Efektivitas, Begadang."></p>
         </div>
 
-        <!-- SECTION 4: HOBI -->
+        <!-- SECTION 4: HOBI 1 - NGODING -->
         <div class="section">
             <h2>My Hobby</h2>
-            
-            <div class="hobi-item">
-                <h3>1. Ngoding</h3>
-                <img src="ngoding.jpg" alt="Ngoding">
-                <p class="type-text" data-text="Iya emang belom full skill gw sih, banyak bantuan AI tapi seru aja, walau dibantu AI buat kodenya, tapikan idenya dari kita, susunan logikanya dari kita, setuju gak?."></p>
-            </div>
-
-            <div class="hobi-item">
-                <h3>2. Main Game</h3>
-                <img src="game.jpg" alt="Game">
-                <p class="type-text" data-text="Dikala orang lain mainin game kompetitif kayak mobile legends, free fire, bloodstrike atau apapun itu, gw lebih milih nyantai main game Minecraft ini sambil stel musik, enak aja gitu."></p>
-            </div>
-
-            <div class="hobi-item">
-                <h3>3. Tidur</h3>
-                <img src="tidur.jpg" alt="Tidur">
-                <p class="type-text" data-text="Mau gimana lagi, sebenernya bukan hobi tapi tidur ini melekat banget sama gw jir, walau orangnya susah tidur kalo malem, tapi pas siang gw tuh ngantukan asli."></p>
-            </div>
+            <h3>1. Ngoding</h3>
+            <img src="ngoding.jpg" alt="Ngoding">
+            <p class="type-text" data-text="Iya emang belom full skill gw sih, banyak bantuan AI tapi seru aja, walau dibantu AI buat kodenya, tapikan idenya dari kita, susunan logikanya dari kita, setuju gak?."></p>
         </div>
 
-        <!-- SECTION 5: QUOTE -->
+        <!-- SECTION 5: HOBI 2 - GAME -->
+        <div class="section">
+            <h3>2. Main Game</h3>
+            <img src="game.jpg" alt="Game">
+            <p class="type-text" data-text="Dikala orang lain mainin game kompetitif kayak mobile legends, free fire, gw lebih milih nyantai main Minecraft ini sambil stel musik, enak aja gitu."></p>
+        </div>
+
+        <!-- SECTION 6: HOBI 3 - TIDUR -->
+        <div class="section">
+            <h3>3. Tidur</h3>
+            <img src="tidur.jpg" alt="Tidur">
+            <p class="type-text" data-text="Mau gimana lagi, sebenernya bukan hobi tapi tidur ini melekat banget sama gw jir, walau orangnya susah tidur kalo malem, tapi pas siang gw tuh ngantukan asli."></p>
+        </div>
+
+        <!-- SECTION 7: QUOTE -->
         <div class="section">
             <h2>Quote Favorit</h2>
-            <p class="type-text" data-text='"Banyak yang ingin setajam pisau tapi menolak untuk diasah, banyak yang ingin seharum dupa namun enggan untuk dibakar."'></p>
+            <p class="quote type-text" data-text='"Banyak yang ingin setajam pisau tapi menolak untuk diasah, banyak yang ingin seharum dupa namun enggan untuk dibakar."'></p>
         </div>
 
     </div>
@@ -173,7 +164,6 @@
         </div>
     </footer>
 
-    <!-- SCRIPT BUAT ANIMASI -->
     <script>
         const sections = document.querySelectorAll('.section');
         const observer = new IntersectionObserver((entries) => {
@@ -185,13 +175,13 @@
                     textEls.forEach(textEl => {
                         if(!textEl.classList.contains('typed')){
                             const text = textEl.getAttribute('data-text');
-                            typeWriter(textEl, text, 40);
+                            typeWriter(textEl, text, 35); // speed gw cepetin dikit
                             textEl.classList.add('typed');
                         }
                     });
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.3 }); // threshold 0.3 = harus keliatan 30% baru ke-trigger
 
         sections.forEach(section => {
             observer.observe(section);
