@@ -47,12 +47,13 @@
             letter-spacing: 2px;
         }
         .header img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+    width: 180px;        /* WAJIB SAMA */
+    height: 180px;       /* WAJIB SAMA */
+    border-radius: 50%;  /* INI PEMBULET */
     border: 5px solid #ccc;
-    object-fit: cover;
-    transition: transform 0.6s ease;
+    object-fit: cover;   /* INI PENTING BIAR GAK GEPENG */
+    display: block;
+    margin: 0 auto 20px auto;
 }
 .header img:hover {
     transform: scale(1.05) rotate(3deg);
