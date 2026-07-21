@@ -24,11 +24,10 @@
             margin: 20px 0; 
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s ease-out;
-            overflow: hidden; /* FIX: biar gambar gak keluar card */
+            overflow: hidden;
         }
         .section.show {
             opacity: 1;
@@ -38,6 +37,8 @@
             text-align: center;
             padding: 40px 20px;
             background: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
         }
         .header .judul-biodata {
             font-size: 1.8em;
@@ -45,18 +46,6 @@
             color: #555;
             margin-bottom: 20px;
             letter-spacing: 2px;
-        }
-        .header img {
-    width: 180px;        /* WAJIB SAMA */
-    height: 180px;       /* WAJIB SAMA */
-    border-radius: 50%;  /* INI PEMBULET */
-    border: 5px solid #ccc;
-    object-fit: cover;   /* INI PENTING BIAR GAK GEPENG */
-    display: block;
-    margin: 0 auto 20px auto;
-}
-.header img:hover {
-    transform: scale(1.05) rotate(3deg);
         }
         .header h1 {
             font-size: 2.5em;
@@ -76,16 +65,31 @@
             margin-top: 0;
             color: #444;
         }
-        /* FIX: GAMBAR HOBI BIAR GAK GEDE */
+        /* GAMBAR HOBI */
         .section img {
-            width: 100%;        /* ikut lebar card */
-            max-width: 100%;    /* mentok segede card */
-            height: auto;       /* biar gak gepeng */
+            width: 100%;
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
             margin: 15px 0;
-            display: block;     /* ilangin jarak aneh */
+            display: block;
         }
-        /* STYLE BUAT QUOTE */
+        
+        /* INI FOTO PROFIL - PALING BAWAH BIAR GAK KETIMPA */
+        .header img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #ccc;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 20px auto;
+            transition: transform 0.6s ease;
+        }
+        .header img:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+
         .quote {
             font-style: italic;
             text-align: center;
@@ -111,10 +115,7 @@
     </style>
 </head>
 <body>
-
     <div class="container">
-        
-        <!-- SECTION 1: HEADER -->
         <div class="header section">
             <div class="judul-biodata type-text" data-text="BIODATA"></div>
             <img src="foto.jpeg" alt="Foto Profil">
@@ -122,19 +123,16 @@
             <p class="type-text" data-text="Calon Web Developer | Suka Ngoding & Nulis"></p>
         </div>
 
-        <!-- SECTION 2: TENTANG AKU -->
         <div class="section">
             <h2>Tentang Aku</h2>
             <p class="type-text" data-text="Halo! Aku Miralda. Lagi belajar bikin website dari HP. Seneng banget ngulik dunia coding sampe kepala ngebul, tapi tetep santai. Prinsip gw: IQ + Ketenangan + Kopi = Ranking 1 😹"></p>
         </div>
 
-        <!-- SECTION 3: KEAHLIAN -->
         <div class="section">
             <h2>Keahlian</h2>
             <p class="type-text" data-text="Problem Solving, Efektivitas, Begadang."></p>
         </div>
 
-        <!-- SECTION 4: HOBI 1 - NGODING -->
         <div class="section">
             <h2>My Hobby</h2>
             <h3>1. Ngoding</h3>
@@ -142,29 +140,24 @@
             <p class="type-text" data-text="Iya emang belom full skill gw sih, banyak bantuan AI tapi seru aja, walau dibantu AI buat kodenya, tapikan idenya dari kita, susunan logikanya dari kita, setuju gak?."></p>
         </div>
 
-        <!-- SECTION 5: HOBI 2 - GAME -->
         <div class="section">
             <h3>2. Main Game</h3>
             <img src="game.jpg" alt="Game">
             <p class="type-text" data-text="Dikala orang lain mainin game kompetitif kayak mobile legends, free fire, gw lebih milih nyantai main Minecraft ini sambil stel musik, enak aja gitu."></p>
         </div>
 
-        <!-- SECTION 6: HOBI 3 - TIDUR -->
         <div class="section">
             <h3>3. Tidur</h3>
             <img src="tidur.jpg" alt="Tidur">
             <p class="type-text" data-text="Mau gimana lagi, sebenernya bukan hobi tapi tidur ini melekat banget sama gw jir, walau orangnya susah tidur kalo malem, tapi pas siang gw tuh ngantukan asli."></p>
         </div>
 
-        <!-- SECTION 7: QUOTE -->
         <div class="section">
             <h2>Quote Favorit</h2>
             <p class="quote type-text" data-text='"Banyak yang ingin setajam pisau tapi menolak untuk diasah, banyak yang ingin seharum dupa namun enggan untuk dibakar."'></p>
         </div>
-
     </div>
 
-    <!-- FOOTER -->
     <footer class="section">
         <p>Websitenya baru sampe sini, thankyouu udah mampir kesini wkwk</p>
         <div>
@@ -180,7 +173,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
-                    
                     const textEls = entry.target.querySelectorAll('.type-text');
                     textEls.forEach(textEl => {
                         if(!textEl.classList.contains('typed')){
@@ -192,11 +184,9 @@
                 }
             });
         }, { threshold: 0.3 });
-
         sections.forEach(section => {
             observer.observe(section);
         });
-
         function typeWriter(element, text, speed = 50) {
             let i = 0;
             element.innerHTML = "";
@@ -210,6 +200,5 @@
             typing();
         }
     </script>
-
 </body>
 </html>
